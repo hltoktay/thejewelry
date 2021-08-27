@@ -43,53 +43,116 @@ function Navbar() {
 
 
     return (
-        <nav style={{backgroundColor: '#e7e5e1', height: '4.5rem', padding: '20px', fontSize: '14px', fontFamily: '"AvenirLTStd-Heavy", Arial, Helvetica, sans-serif'}} className="navbar navbar-expand-lg navbar-light">
-            <div className="container-fluid">
-                <a className="navbar-brand" href="/">THE JEWELRY</a>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div style={{color: 'white'}} className="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-                    <ul className="navbar-nav">
-                        <form class="d-flex">
-                            <input style={{border: "1px solid #e7e5e1", borderRadius: "5px", paddingRight: "25px"}} class="form-control btn-sm input-sm" type="search" placeholder="Search" aria-label="Search"/>
-                                <button style={{border: "1px solid black", borderRadius: "50%", backgroundColor: "grey", color: "white", fontSize: "14px", marginLeft: "10px" }} class="btn btn-sm" type="submit">Go</button>
-                        </form>
+      <>
+        <nav
+          style={{
+            backgroundColor: "#e7e5e1",
+            height: "4.5rem",
+            padding: "20px",
+            fontSize: "14px",
+            fontFamily: '"AvenirLTStd-Heavy", Arial, Helvetica, sans-serif'
+          }}
+          className="navbar navbar-expand-lg navbar-light"
+        >
+          <div style={{ backgroundColor: "#e7e5e1",}} className="container-fluid">
+            <a className="navbar-brand" href="/">
+              THE JEWELRY
+            </a>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNavDropdown"
+              aria-controls="navbarNavDropdown"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div
+              style={{ color: "white" }}
+              className="collapse navbar-collapse justify-content-end"
+              id="navbarNavDropdown"
+            >
+              <ul className="navbar-nav">
+                <form class="d-flex">
+                  <input
+                    style={{
+                      border: "1px solid #e7e5e1",
+                      borderRadius: "5px",
+                      paddingRight: "25px"
+                    }}
+                    class="form-control btn-sm input-sm"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                  />
+                  <button
+                    style={{
+                      border: "1px solid black",
+                      borderRadius: "50%",
+                      backgroundColor: "grey",
+                      color: "white",
+                      fontSize: "14px",
+                      marginLeft: "10px"
+                    }}
+                    class="btn btn-sm"
+                    type="submit"
+                  >
+                    Go
+                  </button>
+                </form>
 
-                        <li className="nav-item">
-                            <Link href="/cart">
-                                <a className={"nav-link" + isActive('/cart')}>
-                                    <i className="fas fa-shopping-cart"></i>Cart
-                                </a>
-                            </Link>
-                        </li>
-                
-                        {
-                            Object.keys(auth).length === 0 
-                             ?      <><li className="nav-item">
-                            <Link href="/login">
-                                <a className={"nav-link" + isActive('/login')}>
-                                <i className="fas fa-sign-in-alt"></i>   Login  
-                                </a>
-                            </Link>
-                        </li>
+                <li className="nav-item">
+                  <Link href="/cart">
+                    <a className={"nav-link" + isActive("/cart")}>
+                      <i className="fas fa-shopping-cart"></i>Cart
+                    </a>
+                  </Link>
+                </li>
 
-                        <li className="nav-item">
-                            <Link href="/register">
-                                <a className={"nav-link" + isActive('/register')}>
-                               |  Register
-                                </a>
-                            </Link>
-                        </li>
-                                </>  
-                        : loggedRouter()
-                        }
-     
-                    </ul>
-                </div>
+                {Object.keys(auth).length === 0 ? (
+                  <>
+                    <li className="nav-item">
+                      <Link href="/login">
+                        <a className={"nav-link" + isActive("/login")}>
+                          <i className="fas fa-sign-in-alt"></i> Login
+                        </a>
+                      </Link>
+                    </li>
+
+                    <li className="nav-item">
+                      <Link href="/register">
+                        <a className={"nav-link" + isActive("/register")}>
+                          | Register
+                        </a>
+                      </Link>
+                    </li>
+                  </>
+                ) : (
+                  loggedRouter()
+                )}
+              </ul>
             </div>
+          </div>
         </nav>
-    )
+
+        <div
+          style={{
+            minHeight: "20px",
+            fontSize: "12px",
+            paddingLeft: "35px",
+            backgroundColor: "black",
+            letterSpacing: "4px",
+            fontFamily: "arial"
+          }}
+        >
+          <p className="text-white">
+            SIMPLY BRILLIANT JEWELLERY DELIVERED NEXT DAY
+          </p>
+        </div>
+      </>
+    );
 }
 
 export default Navbar

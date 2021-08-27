@@ -8,7 +8,17 @@ body {
     background-color: #ebeae8;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+img {
+  object-fit: cover;
+  object-position: 0 25%;
+}
 
 
 @import url("./loading.css");
-@import url("./register.css")
+@import url("./register.css");
+@import url("./setting.css");
+@import url("./products.css");
