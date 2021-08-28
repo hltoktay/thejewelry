@@ -8,7 +8,7 @@ function Navbar() {
     const router = useRouter()
 
     const [ state, dispatch ] = useContext(DataContext)
-    const { auth } = state;
+    const { auth, cart } = state;
 
 
     const isActive = (r) => {
@@ -74,13 +74,13 @@ function Navbar() {
               className="collapse navbar-collapse justify-content-end"
               id="navbarNavDropdown"
             >
-              <ul className="navbar-nav">
+              <ul className="navbar-nav p-2">
                 <form class="d-flex">
                   <input
                     style={{
                       border: "1px solid #e7e5e1",
                       borderRadius: "5px",
-                      paddingRight: "25px"
+                      paddingRight: "15px"
                     }}
                     class="form-control btn-sm input-sm"
                     type="search"
@@ -90,13 +90,14 @@ function Navbar() {
                   <button
                     style={{
                       border: "1px solid black",
-                      borderRadius: "50%",
+                      borderRadius: "25%",
                       backgroundColor: "grey",
                       color: "white",
-                      fontSize: "14px",
-                      marginLeft: "10px"
+                      fontSize: "12px",
+                      marginLeft: "10px",
+                      
                     }}
-                    class="btn btn-sm"
+                    class="btn brn-sm"
                     type="submit"
                   >
                     Go
@@ -106,7 +107,20 @@ function Navbar() {
                 <li className="nav-item">
                   <Link href="/cart">
                     <a className={"nav-link" + isActive("/cart")}>
-                      <i className="fas fa-shopping-cart"></i>Cart
+                      <i  style={{
+                                padding: '4px 6px',
+                                background: '#ebeae8',
+                                border: '1px solid #7e6023',
+                                borderRadius: '20%',
+                                right: '5px',
+                                color: '#ccac6d',
+                                fontSize: '14px'
+                              }} className="fas fa-shopping-cart position-relative"> </i>
+                        <span className="position-absolute"
+                        >
+                        {cart.length}
+                        </span>
+                 
                     </a>
                   </Link>
                 </li>

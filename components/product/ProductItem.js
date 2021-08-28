@@ -1,20 +1,39 @@
 import Link from 'next/link';
+import { useContext } from 'react';
+import { DataContext } from '../../store/GlobalState';
+import { addToCart } from '../../store/Actions';
 
 const ProductItem = ({ product }) => {
 
+    const [ state, dispatch ] = useContext(DataContext)
+    const { cart } = state;
+
+
     const userLink = () =>{
-        return(
-            <>
-                <div  className="justify-content-center d-inline p-2">
-                    <Link   href={`product/${product._id}`}>
-                        <a style={{flex: 1}} className="btn btn-light px-5">View</a>
-                    </Link>
-                    <button style={{marginLeft: '5px', backgroundColor: '#e6d9bf', flex: 1}} className="btn px-5">
-                        <i class="fas fa-cart-plus"></i> Buy
-                 </button>
-                </div>
-            </>
-        )
+        return (
+          <>
+            <div className="justify-content-center d-inline p-2">
+              <Link href={`product/${product._id}`}>
+                <a style={{ flex: 1 }} className="btn btn-light px-5">
+                  View
+                </a>
+              </Link>
+              <button
+                style={{
+                  marginLeft: "5px",
+                  backgroundColor: "#e6d9bf",
+                  flex: 1
+                }}
+                disabled={product.inStock === 0 ? true : false}
+                className="btn px-5"
+                onClick={() => dispatch(addToCart(product, cart))}
+              >
+                <i class="fas fa-cart-plus"></i>
+                Buy
+              </button>
+            </div>
+          </>
+        );
     }
 
     // console.log(product)
