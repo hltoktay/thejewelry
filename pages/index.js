@@ -19,7 +19,9 @@ const Home = (props) => {
       <Head>
           <title>Home Page</title>
       </Head>
-          
+
+
+
           {
             products.length === 0
               ? <h2> No Products</h2>
@@ -27,7 +29,7 @@ const Home = (props) => {
                 <ProductItem key={product._id} product={product} />
               ))
           }
-      
+
 
     </div>
   )
