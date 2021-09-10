@@ -16,7 +16,7 @@ const  Modal = () => {
             <div className="modal-dialog">
                 <div className="modal-content">
                     <div className="modal-header">
-                        <h5 className="modal-title" id="exampleModalLabel">
+                        <h5 className="modal-title text-capitalize" id="exampleModalLabel">
                             {modal.title}
                         </h5>
                         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -26,7 +26,7 @@ const  Modal = () => {
                     </div>
 
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-outline-danger" onClick={handleSubmit}>Remove Product</button>
+                        <button type="button" className="btn btn-outline-danger" data-dismiss="modal" onClick={handleSubmit}>Remove Product</button>
                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
                     </div>
                 </div>

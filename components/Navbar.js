@@ -29,8 +29,8 @@ function Navbar() {
     const loggedRouter = () => {
         return (
             <li className="nav-item dropdown" style={{marginRight: '50px'}}>
-                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    My Account
+                <a className="nav-link dropdown-toggle fw-bolder text-dark" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {auth.user.name}
                 </a>
                 <ul className="dropdown-menu" style={{backgroundColor: '#e7e5e1'}} aria-labelledby="navbarDropdownMenuLink">
                     <li><a className="dropdown-item" href="/settings">Setting</a></li>

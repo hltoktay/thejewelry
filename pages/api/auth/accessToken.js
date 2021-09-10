@@ -22,8 +22,11 @@ export default async (req, res) => {
             user: {
                 name: user.name,
                 email: user.email,
+                address: user.address,
+                city: user.city,
+                postcode: user.postcode,
                 role: user.role,
-                acatar: user.avatar,
+                avatar: user.avatar,
                 root: user.root
             }
         })
