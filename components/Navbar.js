@@ -75,14 +75,14 @@ function Navbar() {
               id="navbarNavDropdown"
             >
               <ul className="navbar-nav p-2">
-                <form class="d-flex">
+                <form className="d-flex">
                   <input
                     style={{
                       border: "1px solid #e7e5e1",
                       borderRadius: "5px",
                       paddingRight: "15px"
                     }}
-                    class="form-control btn-sm input-sm"
+                    className="form-control btn-sm input-sm"
                     type="search"
                     placeholder="Search"
                     aria-label="Search"
@@ -97,7 +97,7 @@ function Navbar() {
                       marginLeft: "10px",
                       
                     }}
-                    class="btn brn-sm"
+                    className="btn brn-sm"
                     type="submit"
                   >
                     Go

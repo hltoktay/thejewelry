@@ -22,7 +22,7 @@ export default function settings() {
                   
                     
                     
-                       <li><a href="">Order History</a></li>
+                       <li><a href="/order_history">Order History</a></li>
                   
             
                      
