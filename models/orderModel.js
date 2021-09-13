@@ -5,16 +5,23 @@ const orderSchema = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: 'user'
     },
-    address: String,
+    daddress: String,
     city: String,
     postcode: String,
     mobile: String,
     cart: Array,
     total: Number,
+    paymentId: String,
+    method: String,
     delivered: {
         type: Boolean,
         default: false
     },
+    paid: {
+        type: Boolean,
+        default: false
+    },
+    dateOfPayment: Date
 }, {
     timestamps: true
 })

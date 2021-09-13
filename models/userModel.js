@@ -34,10 +34,10 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-    avatar: {
-        type: String,
-        default: 'https://res.cloudinary.com/de9mnynzo/image/upload/v1629407812/test/78-785827_user-profile-avatar-login-account-male-user-icon_cfr2kg.png'
-    }
+    // avatar: {
+    //     type: String,
+    //     default: 'https://res.cloudinary.com/de9mnynzo/image/upload/v1629407812/test/78-785827_user-profile-avatar-login-account-male-user-icon_cfr2kg.png'
+    // }
 }, {
     timestamps: true
 })

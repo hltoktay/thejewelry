@@ -35,24 +35,3 @@ const uploadInfor = async (req, res) => {
         return res.status(500).json({ err: err.message })
     }
 }
-
-// const updateAddress = async (req, res) => {
-//     try {
-//         const result = await auth(req, res)
-//         const { address, city, postcode } = req.body
-
-//         const newUser = await Users.findOneAndUpdate({_id: result.id} ,address, city, postcode)
-
-//         res.json({
-//             msg: 'Update Success!',
-//             user: {
-//                 address: newUser.address,
-//                 city: newUser.city,
-//                 postcode: newUser.postcode
-//             }
-//         })
-
-//     } catch (err) {
-//         return res.status(500).json({ err: err.message })
-//     }
-// }

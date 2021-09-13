@@ -26,6 +26,22 @@ function Navbar() {
         dispatch({ type: 'NOTIFY', payload: {success: 'Logged out!'} })
     }
 
+    const adminRouter = () => {
+      return (
+        <>
+          <Link href="/users">
+            <a className="dropdown-item">Users</a>
+          </Link>
+           <Link href="/create">
+            <a className="dropdown-item">Products</a>
+          </Link>
+           <Link href="/categories">
+            <a className="dropdown-item">Categories</a>
+          </Link>
+        </>
+      )
+    }
+
     const loggedRouter = () => {
         return (
             <li className="nav-item dropdown" style={{marginRight: '50px'}}>
@@ -34,6 +50,10 @@ function Navbar() {
                 </a>
                 <ul className="dropdown-menu" style={{backgroundColor: '#e7e5e1'}} aria-labelledby="navbarDropdownMenuLink">
                     <li><a className="dropdown-item" href="/settings">Setting</a></li>
+                    {
+                      auth.user.role === 'admin' && adminRouter()
+                    }
+                    <div className="dropdown-divider"></div>
                     <li><button className="dropdown-item" href="/" onClick={handleLogout}>Logout</button></li>
                 </ul>
             </li>

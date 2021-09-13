@@ -13,11 +13,12 @@ const Profile = () => {
         cf_password: '',
         address: '',
         city: '',
-        postcode: ''
+        postcode: '',
+        mobile: ''
     }
 
     const [data, setData] = useState(initialState)
-    const { name, address, city, postcode, password, cf_password } = data
+    const { name, address, city, postcode, mobile, password, cf_password } = data
 
 
     const [ state, dispatch ] = useContext(DataContext);
@@ -25,13 +26,13 @@ const Profile = () => {
 
 
     useEffect(() => {
-       if(auth.user) setData({...data, name: auth.user.name, address:auth.user.address, city:auth.user.city, postcode:auth.user.postcode })
+       if(auth.user) setData({...data, name: auth.user.name, address:auth.user.address, city:auth.user.city, postcode:auth.user.postcode, mobile:auth.user.mobile })
     }, [auth.user])
 
 
     const handleChange = (e) => {
-      const { name, value, address, city, postcode } = e.target
-      setData({...data, [name]:value, [address]:value, [city]: value, [postcode]: value })
+      const { name, value, address, city, postcode, mobile } = e.target
+      setData({...data, [name]:value, [address]:value, [city]: value, [postcode]: value, [mobile]: value })
       dispatch({type: 'NOTIFY', payload: {}})
     }
 
@@ -224,7 +225,7 @@ const Profile = () => {
                     </div>
                   </div>
 
-                  <div className="col-md-6">
+                  <div className="col-md-5">
                     <label htmlFor="city" className="form-label">
                       City
                     </label>
@@ -246,6 +247,19 @@ const Profile = () => {
                       className="form-control"
                       name="postcode"
                       value={postcode} 
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                   <div className="col-md-4">
+                    <label htmlFor="mobile" className="form-label">
+                      Mobile
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="mobile"
+                      defaultValue={mobile} 
                       onChange={handleChange}
                     />
                   </div>
