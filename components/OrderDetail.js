@@ -41,13 +41,13 @@ const OrderDetail = ({orderDetail, state, dispatch}) => {
                           <div style={{maxWidth: '400px'}} className={`alert ${order.delivered ? 'alert-success' : 'alert-danger'}
                         d-flex justify-content-between align-items-center`} role="alert">
                             {
-                                order.delivered ? `Deliverd on ${order.updatedAt}` : 'Not Delivered'
+                                order.delivered ? `Dispatch on ${order.updatedAt}` : 'Not Delivered'
                             }
                             {
                                 auth.user.role === 'admin' && !order.delivered &&
                                 <button className="btn btn-dark text-uppercase"
                                 onClick={() => handleDelivered(order)}>
-                                    Mark as delivered
+                                    Mark as dispatch
                                 </button>
                             }
                             
