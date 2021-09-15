@@ -12,8 +12,27 @@ export default async (req, res) => {
         case "PATCH":
             await updateAddress(req, res)
             break;
+        case "GET":
+            await getUsers(req, res)
+            break;
     }
 }
+
+const getUsers = async (req, res) => {
+    try {
+        const result = await auth(req, res)
+        if(result.role !== 'admin') 
+        return res.statu(400).json({err: "Authentication is not valid."})
+
+
+        const users = await Users.find().select('-password')
+        res.json({users})
+
+    } catch (err) {
+        return res.status(500).json({ err: err.message })
+    }
+}
+
 
 const uploadInfor = async (req, res) => {
     try {

@@ -6,7 +6,7 @@ import { DataContext } from '../store/GlobalState';
 
 export default function settings() {
 
-    const [ state, dispatch ] = useContext(DataContext);
+    const {state, dispatch} = useContext(DataContext);
     const { auth, notify, orders } = state
 
 

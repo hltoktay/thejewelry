@@ -9,7 +9,7 @@ const DetailProduct = (props) => {
 
     const [tab, setTab] = useState(0)
 
-    const [ state, dispatch ] = useContext(DataContext);
+    const  { state, dispatch } = useContext(DataContext);
     const { cart } = state;
 
 

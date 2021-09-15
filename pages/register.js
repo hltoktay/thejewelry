@@ -13,7 +13,7 @@ const Register = () => {
   const { name, email, password, cf_password, address, city, postcode } = userData
 
 
-  const [ state, dispatch ] = useContext(DataContext)
+  const { state, dispatch } = useContext(DataContext)
 
    const { auth } = state;
 
@@ -43,7 +43,7 @@ const Register = () => {
   }
 
   useEffect(() => {
-    if(Object.keys(auth).length !== 0) router.push('/')
+    if(Object.keys(auth).length !== 0) router.push('/login')
   }, [auth])
 
 

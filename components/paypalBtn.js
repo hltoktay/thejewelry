@@ -5,7 +5,7 @@ import {updateItem} from '../store/Actions'
 
 const paypalBtn = ({order}) => {
     const refPaypalBtn = useRef()
-    const [ state, dispatch ] = useContext(DataContext)
+    const { state, dispatch } = useContext(DataContext)
     const { auth, orders} = state
 
     useEffect(() => {

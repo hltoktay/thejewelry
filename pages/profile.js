@@ -21,7 +21,7 @@ const Profile = () => {
     const { name, address, city, postcode, mobile, password, cf_password } = data
 
 
-    const [ state, dispatch ] = useContext(DataContext);
+    const {state, dispatch} = useContext(DataContext);
     const { auth, notify, orders } = state
 
 

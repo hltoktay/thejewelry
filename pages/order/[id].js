@@ -7,7 +7,7 @@ import OrderDetail from '../../components/OrderDetail';
 
  
  const DetailOrder = () => {
-     const [ state, dispatch ] = useContext(DataContext)
+     const { state, dispatch } = useContext(DataContext)
      const { orders, auth } = state
 
      const router = useRouter()

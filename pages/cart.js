@@ -8,7 +8,7 @@ import { getData , postData } from '../utils/fetchData';
 import { useRouter } from 'next/router'
 
 const Cart = () => {
-  const [ state, dispatch ] = useContext(DataContext)
+  const { state, dispatch } = useContext(DataContext)
   const { cart, auth, orders } = state;
 
   const [ total, setTotal ] = useState(0)

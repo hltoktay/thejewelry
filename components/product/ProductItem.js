@@ -5,7 +5,7 @@ import { addToCart } from '../../store/Actions';
 
 const ProductItem = ({ product }) => {
 
-    const [ state, dispatch ] = useContext(DataContext)
+    const { state, dispatch } = useContext(DataContext)
     const { cart } = state;
 
 
