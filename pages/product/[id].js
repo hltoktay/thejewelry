@@ -34,7 +34,7 @@ const DetailProduct = (props) => {
               <tr>
                 <th scope="col">Ref</th>
                 <th scope="col">Wgt</th>
-                <th scope="col">Cost</th>
+                <th scope="col">Ppg</th>
                 <th scope="col">Price</th>
                 <th scope="col">In Stock</th>
                 <th scope="col">Sold</th>
@@ -43,8 +43,8 @@ const DetailProduct = (props) => {
             <tbody>
               <tr>
                 <th scope="row">{product.ref}</th>
-                <td>{product.wgt}</td>
-                <td>{product.cost}</td>
+                <td>{product.wgt} gr</td>
+                <td>£{product.ppg}</td>
                 <td>£{product.price}</td>
                 <td>
                   {product.inStock > 0 ? (

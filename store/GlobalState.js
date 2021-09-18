@@ -5,7 +5,19 @@ import { getData } from '../utils/fetchData';
 export const DataContext = createContext()
 
 export const DataProvider = ({children}) => {
-    const initialState = { notify: {}, auth: {},  cart: [], modal: {}, address:{}, city:{}, postcode:{}, mobile:{}, orders:[], users: [] }
+    const initialState = {
+      notify: {},
+      auth: {},
+      cart: [],
+      modal: {},
+      address: {},
+      city: {},
+      postcode: {},
+      mobile: {},
+      orders: [],
+      users: [],
+      categories: []
+    };
     
     const [ state, dispatch ] = useReducer(reducers, initialState)
 
@@ -23,6 +35,15 @@ export const DataProvider = ({children}) => {
                         token: res.access_token,
                         user: res.user
                     }
+                })
+            })
+
+            getData('categories').then(res => {
+                if(res.err) return dispatch({ type: 'NOTIFY', payload: { error: res.err }})
+
+                dispatch({
+                    type: "ADD_CATEGORIES",
+                    payload: res.categories
                 })
             })
         }

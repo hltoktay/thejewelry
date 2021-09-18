@@ -10,14 +10,6 @@ const productSchema = new mongoose.Schema({
         type: Number,
         required: true,
         trim: true
-    }, 
-    description: {
-        type: String,
-        required: true
-    },
-    content: {
-        type: String,
-        required: true
     },
     ref: {
         type: String,
@@ -28,10 +20,6 @@ const productSchema = new mongoose.Schema({
         required: true
     },
     ppg: {
-        type: Number,
-        required: true
-    },
-    cost: {
         type: Number,
         required: true
     },
