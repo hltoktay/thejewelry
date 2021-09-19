@@ -1,5 +1,4 @@
 import Link from 'next/link';
-
 import { decrease, increase } from '../store/Actions'
 
 const CartItem = ({item, dispatch, cart}) => {
@@ -34,7 +33,7 @@ const CartItem = ({item, dispatch, cart}) => {
             data-bs-toggle="modal" data-bs-target="#exampleModal"
             onClick={() => dispatch({
                 type: 'ADD_MODAL',
-                payload: { data: cart, id: item._id, title: item.title, type: 'ADD_CART' }
+                payload: [{ data: cart, id: item._id, title: item.title, type: 'ADD_CART' }]
             })}
             >
             </i>

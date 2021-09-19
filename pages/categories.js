@@ -13,35 +13,33 @@ const Categories = () => {
 
     const [id, setId] = useState('')
 
-    const createCategory = async () => {
+   const createCategory = async () => {
         if(auth.user.role !== 'admin')
-        return dispatch({ type: 'NOTIFY', payload: {error: 'Authentication is not valid.'}})
+        return dispatch({type: 'NOTIFY', payload: {error: 'Authentication is not vaild.'}})
 
-        if(!name) return dispatch({ type: 'NOTIFY', payload: {error: 'Name can not be blank.' }})
-        dispatch({ type: 'NOTIFY', payload: {loading: true}})
+        if(!name) return dispatch({type: 'NOTIFY', payload: {error: 'Name can not be left blank.'}})
 
-        let res; 
-        if(id) {
-            res = await putData(`categories/${id}`, { name }, auth.token)
-            if (res.err) return dispatch({ type: 'NOTIFY', payload: { error: res.err } })
+        dispatch({type: 'NOTIFY', payload: {loading: true}})
 
+        let res;
+        if(id){
+            res = await putData(`categories/${id}`, {name}, auth.token)
+            if(res.err) return dispatch({type: 'NOTIFY', payload: {error: res.err}})
             dispatch(updateItem(categories, id, res.category, 'ADD_CATEGORIES'))
 
-        } else {
-            res = await postData('categories', { name }, auth.token)
-            if (res.err) return dispatch({ type: 'NOTIFY', payload: { error: res.err } })
-
-            dispatch({ type: 'ADD_CATEGORIES', payload: [...categories, res.newCategory] })
+        }else{
+            res = await postData('categories', {name}, auth.token)
+            if(res.err) return dispatch({type: 'NOTIFY', payload: {error: res.err}})
+            dispatch({type: "ADD_CATEGORIES", payload: [...categories, res.newCategory]})
         }
-
-       setName('')
-       setId('')
-       return dispatch({ type: 'NOTIFY', payload: {success: res.msg}})
+        setName('')
+        setId('')
+        return dispatch({type: 'NOTIFY', payload: {success: res.msg}})
     }
 
-    const handleEditCategory = (category) => {
-        setId(category._id)
-        setName(category.name)
+    const handleEditCategory = (catogory) => {
+        setId(catogory._id)
+        setName(catogory.name)
     }
 
     return (
@@ -74,12 +72,13 @@ const Categories = () => {
                                 ></i>
                                 
                                 <i className="fas fa-trash-alt mx-2 text-danger"
+                              data-bs-toggle="modal" data-bs-target="#exampleModal"
                                 onClick={() => dispatch({
                                     type: 'ADD_MODAL',
-                                    payload: { 
-                                        data: categories, id: catogory._id, 
-                                        title: catogory.name, type: 'ADD_CATEGORIES' 
-                                    }
+                                    payload:[{ 
+                                        data: categories, id: category._id, 
+                                        title: category.name, type: 'ADD_CATEGORIES' 
+                                    }]
                                })} ></i>
                             </div>
                         </div>    

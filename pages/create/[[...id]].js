@@ -1,8 +1,9 @@
 import Head from 'next/head';
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import { DataContext } from '../../store/GlobalState';
 import { imageUpload } from '../../utils/imageUpload'
-import { postData } from '../../utils/fetchData'
+import { postData, getData, putData } from '../../utils/fetchData';
+import {  useRouter } from 'next/router';
 
 const ProductManager = () => {
 
@@ -19,11 +20,30 @@ const ProductManager = () => {
 
     const [product, setProduct ] = useState(initialState)
     const { product_id, title, price, inStock, category, ref, wgt, ppg } = product
+    
 
     const [ images, setImages ] = useState([])
 
     const { state, dispatch } = useContext(DataContext); 
     const { categories, auth } = state;
+
+    const router = useRouter()
+    const { id } = router.query
+    const [ onEdit, setonEdit ] = useState(false)
+
+    useEffect(() => {
+        if(id) {
+           setonEdit(true)  
+           getData(`product/${id}`).then(res => {
+               setProduct(res.product)
+               setImages(res.product.images)
+           })   
+        }else {
+            setonEdit(false)
+            setProduct(initialState)
+            setImages([])
+        }
+    }, [id])
 
     const handleChangeInput = e => {
         const {name, value } = e.target
@@ -74,9 +94,9 @@ const ProductManager = () => {
         if(auth.user.role !== 'admin')
         return dispatch({type: 'NOTIFY', payload: {error: 'Authentication required.'}})
 
-        const price = wgt * ppg
+       
           
-        if (!product_id || !title || !price || !inStock || category === 'all' || !ref || !wgt || !ppg || images.length === 0)
+        if (!product_id || !title || !price === wgt * ppg || !inStock || category === 'all' || !ref || !wgt || !ppg || images.length === 0)
         return dispatch({type: 'NOTIFY', payload: {error: console.log(product)}})
 
         dispatch({ type: 'NOTIFY', payload: {loading: true}})
@@ -86,8 +106,14 @@ const ProductManager = () => {
 
         if(imgNewURL.length > 0 ) media = await imageUpload(imgNewURL)
 
-        const res = await postData('product', {...product, images: [...imgOldURL, ...media]}, auth.token)
-        if(res.err) return dispatch({type: 'NOTIFY', payload: {error: res.err}})
+        let res;
+        if (onEdit) {
+            res = await putData(`product/${id}`, { ...product, images: [...imgOldURL, ...media] }, auth.token)
+            if (res.err) return dispatch({ type: 'NOTIFY', payload: { error: res.err } })
+        } else {
+            res = await postData('product', { ...product, images: [...imgOldURL, ...media] }, auth.token)
+            if (res.err) return dispatch({ type: 'NOTIFY', payload: { error: res.err } })
+        }
 
         return dispatch({type: 'NOTIFY', payload: {success: res.msg}})
 
@@ -131,7 +157,7 @@ const ProductManager = () => {
                     <div className="row">
                         <div className="col-sm-6">
                         <label htmlFor="price">Price</label>
-                            <input type="number" name="price" value={wgt * ppg}
+                            <input type="number" name="price" value={wgt*ppg}
                                 placeholder="Price" className="d-block w-100 p-2"
                                 onChange={handleChangeInput} />
                         </div>
@@ -188,7 +214,9 @@ const ProductManager = () => {
                 </div>
 
             
-                <button type="submit" className="btn btn-info col-6 text-white my-2 px-4">Create</button>
+                <button type="submit" className="btn btn-info col-6 text-white my-2 px-4">
+                    {onEdit ? 'Update' : 'Create'}
+                </button>
 
             </form>
 

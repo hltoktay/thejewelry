@@ -9,7 +9,7 @@ export const DataProvider = ({children}) => {
       notify: {},
       auth: {},
       cart: [],
-      modal: {},
+      modal: [],
       address: {},
       city: {},
       postcode: {},

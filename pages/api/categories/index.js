@@ -19,7 +19,8 @@ export default async (req, res) => {
 const createCategory = async (req, res) => {
     try {
     const result = await auth(req, res)
-    if(result.role !== 'admin') return res.status(400).json({err: "Authentication is not valid."})
+    if(result.role !== 'admin') 
+    return res.status(400).json({err: "Authentication is not valid."})
 
     const { name } = req.body
     if(!name) return res.status(400).json({err: "Name can not be left blank."})
@@ -32,6 +33,7 @@ const createCategory = async (req, res) => {
         msg: 'Success! Created a new category.',
         newCategory
     })
+    
     } catch (err) {
         return res.status(500).json({err: err.message})
     }
@@ -43,6 +45,7 @@ const getCategories = async (req, res) => {
     const categories = await Categories.find()     
 
     res.json({categories})
+    
     } catch (err) {
         return res.status(500).json({err: err.message})
     }
