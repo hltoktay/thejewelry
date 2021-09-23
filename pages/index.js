@@ -7,6 +7,7 @@ import { getData } from '../utils/fetchData';
 import { DataContext } from '../store/GlobalState'
 import filterSearch from '../utils/filterSearch';
 import { router, useRouter } from 'next/router' 
+import Filter from '../components/Filter';
 
 
 const Home = (props) => {
@@ -71,21 +72,28 @@ const Home = (props) => {
       <Head>
         <title>Home Page</title>
       </Head>
+
       {
         auth.user && auth.user.role === 'admin' &&
+        <>
 
-        <div className="delete_all btn btn-danger mt-2" style={{ marginBottom: '-10px', marginLeft: '40px' }}>
-          <input type="checkbox" checked={isCheck} onChange={handleCheckALL}
-            style={{ width: '25px', height: '25px', transform: 'translateY(8px)' }} />
-           
+          <Filter state={state} />
+
+          <div className="delete_all btn btn-danger mt-2" style={{ marginBottom: '-10px', marginLeft: '40px' }}>
+            <input type="checkbox" checked={isCheck} onChange={handleCheckALL}
+              style={{ width: '25px', height: '25px', transform: 'translateY(8px)' }} />
+
             <button className="btn btn-danger mx-2"
-            data-bs-toggle="modal" data-bs-target="#exampleModal" 
-            onClick={handleDeleteAll}
+              data-bs-toggle="modal" data-bs-target="#exampleModal"
+              onClick={handleDeleteAll}
             >
               DELETE ALL
             </button>
-        </div>
+          </div>
 
+
+
+        </>
       }
 
       <div className="products">
