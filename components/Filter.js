@@ -32,14 +32,14 @@ export default function Filter({state}) {
 
     return (
 
-<section class="search-sec" style={{width: '50%', margin: 'auto',}}>
-    <div class="container">
-        <form action="#" method="post" novalidate="novalidate">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-2 col-sm-12 p-0">
-                            <select class="form-control search-slt" 
+<section className="search-sec" style={{ margin: 'auto',}}>
+    <div className="container">
+        <form action="#" method="post" noValidate="novalidate">
+            <div className="row">
+                <div className="col-lg-12 col-sm-12">
+                    <div className="row">
+                        <div className="col-lg-3 col-md-2 col-sm-12 p-0">
+                            <select className="form-control search-slt" 
                             value={category} onChange={handleCategory}>
                              
                              <option value="all">All Products</option>
@@ -50,14 +50,14 @@ export default function Filter({state}) {
                                 }
                             </select>
                         </div>
-                        <div class="col-lg-6 col-md-5 col-sm-12 p-0">
+                        <div className="col-lg-6 col-md-5 col-sm-12 p-0">
                             <input type="text" className="form-control search-slt" list="title_product"
                                 value={search.toLowerCase()}  onChange={e => setSearch(e.target.value)} />
 
 
                         </div>
-                        <div class="col-lg-3 col-md-2 col-sm-12 p-0">
-                            <select class="form-control search-slt" value={sort} onChange={handleSort}>
+                        <div className="col-lg-3 col-md-2 col-sm-12 p-0">
+                            <select className="form-control search-slt" value={sort} onChange={handleSort}>
                                 <option value="-createdAt">Newest</option>
                                 <option value="oldest">Oldest</option>
                                 <option value="-sold">Best Sales</option>
@@ -65,8 +65,8 @@ export default function Filter({state}) {
                                 <option value="price">Price: Low-High</option>
                             </select>
                         </div>
-                        {/* <div class="col-lg-2 col-md-2 col-sm-12 p-0">
-                            <button type="submit" class="btn wrn-btn">Search</button>
+                        {/* <div className="col-lg-2 col-md-2 col-sm-12 p-0">
+                            <button type="submit" className="btn wrn-btn">Search</button>
                         </div> */}
                     </div>
                 </div>

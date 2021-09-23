@@ -41,9 +41,9 @@ const ProductItem = ({ product,  handleCheck }) => {
           <>
             <div className="justify-content-center d-inline p-2">
               <Link href={`create/${product._id}`}>
-                <a style={{ flex: 1, backgroundColor: "#e6d9bf", }} className="btn btn-light px-5">
+                <span style={{ flex: 1, backgroundColor: "#e6d9bf", }} className="btn btn-light px-5">
                   Edit
-                </a>
+                </span>
               </Link>
               <button
                 style={{
