@@ -14,7 +14,7 @@ const Main = () => {
     <> 
       <main style={{ height: "100%" }}>
 
-          <div style={{backgroundColor: 'red', width:'100%', height: '30px', textAlign: 'center'}}>
+          <div style={{backgroundColor: 'red', width:'100%', height: '30px', textAlign: 'center', color: 'white', fontWeight: '800'}}>
             OUR WEBSITE STILL ON MAINTAINCE
           </div>
       
