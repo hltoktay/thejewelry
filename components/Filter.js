@@ -29,11 +29,15 @@ export default function Filter({state}) {
         
     }, [search])
 
+    const changeBtnTxt = (e) => {
+
+    }
 
     return (
 
 <section className="search-sec" style={{ margin: 'auto',}}>
     <div className="container">
+    
         <form action="#" method="post" noValidate="novalidate">
             <div className="row">
                 <div className="col-lg-12 col-sm-12">
@@ -72,6 +76,11 @@ export default function Filter({state}) {
                 </div>
             </div>
         </form>
+         {/* <button class="btn btn-hide text-uppercase"
+                type="button" data-toggle="collapse" data-target="#filterbar" aria-expanded="false" aria-controls="filterbar"
+                id="filter-btn" onClick={changeBtnTxt}> <span class="fas fa-angle-left" id="filter-angle"></span>
+                <span id="btn-txt">Hide filters</span> 
+            </button> */}
     </div>
 </section>
     )

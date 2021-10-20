@@ -9,7 +9,7 @@ const DetailProduct = (props) => {
 
     const [tab, setTab] = useState(0)
 
-    const  { state, dispatch } = useContext(DataContext);
+    const { state, dispatch } = useContext(DataContext);
     const { cart } = state;
 
 
@@ -25,7 +25,7 @@ const DetailProduct = (props) => {
           <title>Detail Products</title>
         </Head>
 
-        <div className="col-md-6 mt-5">
+        <div className="col-md-7 mt-5">
           <h2 className="text-uppercase">{product.ref}</h2>
           <h6 className="text-uppercase">{product.title}</h6>
 
@@ -64,9 +64,9 @@ const DetailProduct = (props) => {
             </button>
         </div>
 
-        <div className="col-md-6">
+        <div className="col-md-5">
           <img
-            style={{ height: "350px" }}
+            style={{ height: "400px", width: 'auto',  objectFit: 'cover' }}
             className="d-block img-thumbnail rounded mt-4 w-100"
             src={product.images[tab].url}
             alt={product.images[0].url}

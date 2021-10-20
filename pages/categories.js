@@ -23,7 +23,7 @@ const Categories = () => {
 
         let res;
         if(id){
-            res = await putData(`categories/${id}`, {name}, auth.token)
+            res = await putData(`categories/${id}`, {name},  auth.token)
             if(res.err) return dispatch({type: 'NOTIFY', payload: {error: res.err}})
             dispatch(updateItem(categories, id, res.category, 'ADD_CATEGORIES'))
 
@@ -53,6 +53,7 @@ const Categories = () => {
                 placeholder="Add a new category" value={name}
                 onChange={e => setName(e.target.value)} />
 
+
                 <button className="btn btn-secondary mx-1"
                 onClick={createCategory}
                 >
@@ -65,7 +66,7 @@ const Categories = () => {
                    <div key={category._id} className="card my-2 text-capitalize">
                         <div className="card-body d-flex justify-content-between">
                             {category.name}
-
+                            
                             <div style={{cursor: 'pointer'}}>
                                 <i className="fas fa-edit mx-2 text-info"
                                 onClick={() => handleEditCategory(category)}

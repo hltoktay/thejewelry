@@ -23,7 +23,7 @@ const createCategory = async (req, res) => {
     return res.status(400).json({err: "Authentication is not valid."})
 
     const { name } = req.body
-    if(!name) return res.status(400).json({err: "Name can not be left blank."})
+    if(!name ) return res.status(400).json({err: "Name can not be left blank."})
 
     const newCategory = new Categories({name})
 

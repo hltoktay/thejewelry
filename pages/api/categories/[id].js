@@ -25,13 +25,14 @@ const updateCategory = async (req, res) => {
 
         const {id} = req.query
         const {name} = req.body
-
+       
         const newCategory = await Categories.findOneAndUpdate({_id: id}, {name})
         res.json({
             msg: 'Success! Update a new category',
             category: {
                 ...newCategory._doc,
-                name
+                name,
+                
             }
             
             })

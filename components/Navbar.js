@@ -5,6 +5,7 @@ import { DataContext  } from '../store/GlobalState';
 import Cookie from 'js-cookie';
 import SearchBar from './SearchBar';
 
+
 function Navbar() {
     const router = useRouter()
 
@@ -34,10 +35,10 @@ function Navbar() {
           <Link href="/users">
             <a className="dropdown-item">Users</a>
           </Link>
-           <Link href="/create">
+          <Link href="/create">
             <a className="dropdown-item">Products</a>
           </Link>
-           <Link href="/categories">
+          <Link href="/categories">
             <a className="dropdown-item">Categories</a>
           </Link>
         </>
@@ -76,9 +77,10 @@ function Navbar() {
           }}
           className="navbar navbar-expand-lg navbar-light"
         >
-          <div style={{ backgroundColor: "#e7e5e1",}} className="container-fluid">
+          <div style={{ backgroundColor: "#e7e5e1", textAlign: 'center'}} className="container-fluid">
             <a className="navbar-brand" href="/">
-              THE JEWELRY
+              B - JEWELLRY 
+            
             </a>
             <button
               className="navbar-toggler"
@@ -125,7 +127,7 @@ function Navbar() {
                     <li className="nav-item">
                       <Link href="/login">
                         <a className={"nav-link" + isActive("/login")}>
-                          <i className="fas fa-sign-in-alt"></i> Login
+                          <i className="fas fa-sign-in-alt"></i> Customer Login
                         </a>
                       </Link>
                     </li>
@@ -133,7 +135,7 @@ function Navbar() {
                     <li className="nav-item">
                       <Link href="/register">
                         <a className={"nav-link" + isActive("/register")}>
-                          | Register
+                          | Register Customer
                         </a>
                       </Link>
                     </li>

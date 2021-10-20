@@ -35,7 +35,7 @@ const reducers = (state, action) => {
          case ACTIONS.ADD_CATEGORIES:
              return {
              ...state,
-             categories: action.payload
+             categories: action.payload,
          };
          default: 
          return state;

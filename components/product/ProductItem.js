@@ -78,7 +78,6 @@ const ProductItem = ({ product,  handleCheck }) => {
                   onChange={() => handleCheck(product._id)} />
               }
 
-
             <div  className="row row-cols-2 row-cols-md-3 g-5">
                 <div className="col">
                     <div style={{width: '320px', height: 'auto'}} className="card mb-3">
@@ -87,7 +86,8 @@ const ProductItem = ({ product,  handleCheck }) => {
                         <div className="card-body text-center">
                             <h6 className="card-title d-inline p-2" title={product.ref}> {product.ref} </h6>
                             |
-                             <h6 className="d-inline p-2">£{product.price}</h6>
+                            <h6 className="d-inline p-2">£{product.price}</h6>
+                            
                              
                             <div className="row">
                                 {!auth.user || auth.user.role !== 'admin' ? userLink() : adminLink()}

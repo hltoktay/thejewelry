@@ -16,7 +16,8 @@ export const DataProvider = ({children}) => {
       mobile: {},
       orders: [],
       users: [],
-      categories: []
+      categories: [],
+
     };
     
     const [ state, dispatch ] = useReducer(reducers, initialState)

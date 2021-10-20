@@ -1,18 +1,19 @@
 .products {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 3fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 3fr));
     justify-content: center;
     margin: 30px 50px 0 30px;
 }
 
 .products .card {
-     margin: 10px auto;
      position: inherit;
 }
 
 .products .card-img-top {
-    height: 300px;
-    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: auto;
 }
 
 .product .card-title {

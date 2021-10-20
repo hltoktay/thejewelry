@@ -157,7 +157,7 @@ const ProductManager = () => {
                     <div className="row">
                         <div className="col-sm-6">
                         <label htmlFor="price">Price</label>
-                            <input type="number" name="price" value={wgt*ppg}
+                            <input type="number" name="price" value={wgt*ppg} 
                                 placeholder="Price" className="d-block w-100 p-2"
                                 onChange={handleChangeInput} />
                         </div>

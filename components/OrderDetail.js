@@ -29,6 +29,7 @@ const OrderDetail = ({orderDetail, state, dispatch}) => {
             {orderDetail.map(order => (
                 <>
                 <div className="d-inline"  key={order._id} style={{margin: "20px auto"}}>
+                
                     <div className="text-uppercase my-3">
                         <h2 className="text-break">Order {order._id}</h2>
                         <div className="mt-4 text-secondary">

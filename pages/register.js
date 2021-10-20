@@ -49,175 +49,141 @@ const Register = () => {
 
 
   return (
-    <div>
+    <div className="container">
       <Head>
         <title>Register PAGE</title>
         <link href="../styles/register.css" />
       </Head>
 
-      <div className="form-body mx-auto">
-        <div className="row">
-          <div className="form-holder">
-            <div className="form-content">
-              <div className="form-items">
-                <h3>Register Today</h3>
-                <p>Fill in the data below.</p>
-                <form className="requires-validation" noValidate onSubmit={handleSubmit}>
-                  <div className="col-md-12">
-                    <input
-                      className="form-control"
-                      type="text"
-                      name="name"
-                      value={name}
-                      onChange={handleChangeInput}
-                      placeholder="Full Name"
-                      required
-                    />
-                    <div className="valid-feedback">
-                      Username field is valid!
-                    </div>
-                    <div className="invalid-feedback">
-                      Username field cannot be blank!
-                    </div>
-                  </div>
+      <div className="row mt-5">
+        <div className="col-sm-5 col-md-5 col-lg-6">
+          <h1>Activate</h1>
 
-                  <div className="col-md-12">
-                    <input
-                      className="form-control"
-                      type="email"
-                      name="email"
-                      value={email}
-                      onChange={handleChangeInput}
-                      placeholder="E-mail Address"
-                      required
-                    />
-                    <div className="valid-feedback">Email field is valid!</div>
-                    <div className="invalid-feedback">
-                      Email field cannot be blank!
-                    </div>
-                  </div>
+          <p>To activate your user account, please fill out the form below.
+         <br/> <br/> Please note, the customer account details which are stored with us at TJW must include your email address.</p>
 
-                  <div className="col-md-12">
-                    <input
-                      className="form-control"
-                      type="text"
-                      name="address"
-                      value={address}
-                      onChange={handleChangeInput}
-                      placeholder="Address"
-                      required
-                    />
-                    <div className="valid-feedback">
-                      Address field is valid!
-                    </div>
-                    <div className="invalid-feedback">
-                      Address field cannot be blank!
-                    </div>
-                  </div>
+        </div>
 
-                  <div className="row inline-block">
-                    <div className="col-md-6 inline">
-                      <input
-                        className="form-control"
-                        type="text"
-                        name="city"
-                        value={city}
-                        onChange={handleChangeInput}
-                        placeholder="City"
-                        required
-                      />
-                      <div className="valid-feedback">City field is valid!</div>
-                      <div className="invalid-feedback">
-                        City field cannot be blank!
+        <div className="col-sm-5 col-md-5 col-lg-6">
+          <div className="form-body ">
+            <div className="row">
+              <div className="form-holder">
+                <div className="form-content">
+                  <div className="form-items">
+                    <form className="requires-validation" noValidate onSubmit={handleSubmit}>
+                      <div className="col-md-12">
+                        <input
+                          className="form-control text-uppercase"
+                          type="text"
+                          name="name"
+                          value={name}
+                          onChange={handleChangeInput}
+                          placeholder="Company Name"
+                          required
+                        />
+
                       </div>
-                    </div>
 
-                    <div className="col-md-6">
-                      <input
-                        className="form-control"
-                        type="text"
-                        name="postcode"
-                        value={postcode}
-                        onChange={handleChangeInput}
-                        placeholder="Postcode"
-                        required
-                      />
-                      <div className="valid-feedback">
-                        Postcode field is valid!
+                      <div className="col-md-12">
+                        <input
+                          className="form-control"
+                          type="email"
+                          name="email"
+                          value={email}
+                          onChange={handleChangeInput}
+                          placeholder="E-mail Address"
+                          required
+                        />
+
                       </div>
-                      <div className="invalid-feedback">
-                        Postcode field cannot be blank!
+
+                      <div className="col-md-12">
+                        <input
+                          className="form-control text-uppercase"
+                          type="text"
+                          name="address"
+                          value={address}
+                          onChange={handleChangeInput}
+                          placeholder="Address"
+                          required
+                        />
+
                       </div>
-                    </div>
-                  </div>
 
-                  <div className="col-md-12">
-                    <input
-                      className="form-control"
-                      type="password"
-                      name="password"
-                      value={password}
-                      onChange={handleChangeInput}
-                      placeholder="Password"
-                      required
-                    />
-                    <div className="valid-feedback">
-                      Password field is valid!
-                    </div>
-                    <div className="invalid-feedback">
-                      Password field cannot be blank!
-                    </div>
-                  </div>
+                      <div className="row inline-block">
+                        <div className="col-md-6 inline">
+                          <input
+                            className="form-control text-uppercase"
+                            type="text"
+                            name="city"
+                            value={city}
+                            onChange={handleChangeInput}
+                            placeholder="City"
+                            required
+                          />
 
-                  <div className="col-md-12">
-                    <input
-                      className="form-control"
-                      type="password"
-                      name="cf_password"
-                      value={cf_password}
-                      onChange={handleChangeInput}
-                      placeholder="Confirm Password"
-                      required
-                    />
-                    <div className="valid-feedback">
-                      Password field is valid!
-                    </div>
-                    <div className="invalid-feedback">
-                      Password field cannot be blank!
-                    </div>
-                  </div>
+                        </div>
 
-                  <div className="form-check mt-3">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="invalidCheck"
-                      required
-                    />
-                    <label className="form-check-label">
-                      I confirm that all data are correct
-                    </label>
-                    <div className="invalid-feedback">
-                      Please confirm that the entered data are all correct!
-                    </div>
-                  </div>
+                        <div className="col-md-6">
+                          <input
+                            className="form-control text-uppercase"
+                            type="text"
+                            name="postcode"
+                            value={postcode}
+                            onChange={handleChangeInput}
+                            placeholder="Postcode"
+                            required
+                          />
 
-                  <div className="form-button mt-3">
-                    <button
-                      id="submit"
-                      type="submit"
-                      className="btn btn-primary"
-                    >
-                      Register
+                        </div>
+                      </div>
+
+                      <div className="col-md-12">
+                        <input
+                          className="form-control text-uppercase"
+                          type="password"
+                          name="password"
+                          value={password}
+                          onChange={handleChangeInput}
+                          placeholder="Password"
+                          required
+                        />
+
+                      </div>
+
+                      <div className="col-md-12">
+                        <input
+                          className="form-control text-uppercase"
+                          type="password"
+                          name="cf_password"
+                          value={cf_password}
+                          onChange={handleChangeInput}
+                          placeholder="Confirm Password"
+                          required
+                        />
+
+                      </div>
+
+                      <div className="form-button mt-3">
+                        <button
+                          id="submit"
+                          type="submit"
+                          className="btn btn-primary"
+                        >
+                          BECOME A CUSTOMER
                     </button>
+                      </div>
+                    </form>
                   </div>
-                </form>
+                </div>
               </div>
             </div>
           </div>
         </div>
+
       </div>
+
+
     </div>
   );
 }
