@@ -13,6 +13,10 @@ const Main = () => {
   return (
     <> 
       <main style={{ height: "100%" }}>
+
+          <div style={{backgroundColor: 'red', width:'100%', height: '30px',}}>
+            OUR WEBSITE STILL ON MAINTAINCE
+          </div>
       
         <div style={{minHeight: "25px",
             fontSize: "14px",
