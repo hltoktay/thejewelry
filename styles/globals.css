@@ -12,6 +12,14 @@ body {
   box-sizing: border-box;
 }
 
+.logo-image{
+    width: 146px;
+    height: auto;
+    overflow: hidden;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
 /* img {
   object-fit: cover;
   object-position: 0 25%;

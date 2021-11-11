@@ -77,11 +77,13 @@ function Navbar() {
           }}
           className="navbar navbar-expand-lg navbar-light"
         >
-          <div style={{ backgroundColor: "#e7e5e1", textAlign: 'center'}} className="container-fluid">
+          
             <a className="navbar-brand" href="/">
-              B - JEWELLRY 
-            
+              <div class="logo-image">
+                <img src="jeweleryhouse.png" class="img-fluid" />
+              </div>
             </a>
+
             <button
               className="navbar-toggler"
               type="button"
@@ -145,7 +147,7 @@ function Navbar() {
                 )}
               </ul>
             </div>
-          </div>
+         
         </nav>
 
         <div

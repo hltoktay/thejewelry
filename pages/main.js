@@ -77,10 +77,8 @@ const Home = (props) => {
       <div className="main_page">
         <Filter state={state} />
         <div className="row">
-          <div className="col-4">
-            <ProductCategory /> </div>
-         
-          <div className="col-8">
+        
+          <div className="col-12">
           
       {
         auth.user && auth.user.role === 'admin' &&
